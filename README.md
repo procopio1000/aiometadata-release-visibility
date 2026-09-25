@@ -4,7 +4,7 @@ Repositório de especificação, auditoria e evidências do projeto **Release Vi
 
 ## Fonte normativa
 
-A especificação normativa vigente deste projeto é o arquivo [PLAN.md](./PLAN.md).
+A especificação normativa vigente deste projeto é o arquivo [PLAN.md](./PLAN.md), atualmente na **V30 NORMATIVE**.
 
 O plano cobre a implementação relacionada à issue upstream **cedya77/aiometadata#742**, incluindo Release Visibility por região, rastreabilidade normativa, migrações e persistência, runtime/settings bootstrap, delivery control plane, multi-arch, lifecycle fatal, evidências e matriz de testes.
 
@@ -19,7 +19,7 @@ O repositório de implementação deve tratar uma revisão/commit específico de
 
 ## Estrutura
 
-- `PLAN.md` — Plano Mestre V29 completo.
+- `PLAN.md` — Plano Mestre V30 NORMATIVE completo.
 - `docs/architecture/` — arquitetura e contratos técnicos derivados do plano.
 - `docs/decisions/` — ADRs e decisões explícitas.
 - `docs/audits/` — auditorias e revisões do plano.
@@ -31,3 +31,7 @@ O repositório de implementação deve tratar uma revisão/commit específico de
 Quando houver divergência entre notas auxiliares e o `PLAN.md`, prevalece a versão normativa mais recente explicitamente adotada pelo projeto, preservando a rastreabilidade por commit SHA.
 
 Este repositório não substitui o código do AIOmetadata. Ele governa a implementação, revisão, validação e evidência do trabalho realizado no fork de implementação.
+
+## Auditoria vigente
+
+- [Auditoria V29 → V30](./docs/audits/V29-to-V30.md) — revisão que originou a V30 NORMATIVE.

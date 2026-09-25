@@ -1,4 +1,4 @@
-# Plano mestre V29 FINAL — auditoria extrema / Release Visibility + Full Process Resource, Dependency-I/O, Config-Generation, Persistent-Artifact, Runtime-Settings Bootstrap, Cross-Store Migration, Durability-Convergence, Deployment-Entrypoint, Delivery-Control-Plane, Multi-Arch & Fatal-Lifecycle Closure completo do AIOmetadata
+# Plano mestre V30 NORMATIVE — auditoria extrema / Release Visibility + Full Process Resource, Dependency-I/O, Config-Generation, Persistent-Artifact, Runtime-Settings Bootstrap, Cross-Store Migration, Durability-Convergence, Deployment-Entrypoint, Delivery-Control-Plane, Multi-Arch, Fatal-Lifecycle, Spec-Compiler, Supply-Chain Provenance & Target-Identity Closure completo do AIOmetadata
 
 **Issue principal:** #742 — Add region-specific support to “Hide Unreleased Movies”  
 **Repositório:** `cedya77/aiometadata`  
@@ -32,7 +32,34 @@
 
 ---
 
+> **Regra de precedência da V30:** as seções 1–620 preservam integralmente a arquitetura, evidência,
+decisões e histórico V8→V29; as seções **621+** são a camada normativa mais recente para governança da
+especificação compilada, assurance-state, stable requirement identity/supersession, freshness dos artefatos
+derivados, identidade do target de implementação, privileged Action pinning, exact-release immutability,
+SBOM/provenance, container privilege e separação liveness/readiness no deployment. Em conflito nesses domínios,
+**V30 prevalece**. A V30 não declara a implementação executada: o estado inicial desta entrega é
+`SPEC_AUDITED`, e promoções posteriores exigem evidence específica.
+
+**Reauditoria V30:** 2026-09-25 — upstream `dev` continua em
+`d270a3a7f3b6e41304d9f91045b1d481311c3c96` / tree `b4db5931c47035862fac075ac01ec02fe1e621c0`;
+#742 continua aberta e sem comentários. O repositório normativo foi inspecionado e seus diretórios derivados
+ainda são placeholders. A camada V30 acrescenta o **nono universo**, `SpecificationArtifactOccurrenceManifest`,
+e eleva a matriz normativa para **900 casos**.
+
+**Estado de assurance no momento desta auditoria:** `SPEC_AUDITED`; não confundir com `SPEC_COMPLETE`,
+`CODE_COMPLETE`, `MERGE_VERIFIED` ou `RELEASE_VERIFIED`.
+
+---
+
 # 1. Resultado final da auditoria
+
+> **Atualização normativa V30:** a auditoria não encontrou novo source drift no upstream; encontrou, porém,
+> uma diferença entre a profundidade do texto normativo e a materialização do próprio repositório de spec.
+> `PLAN.md` possui seções 1–620 contínuas e casos numerados 1–850 sem gaps nas matrizes acumuladas, mas os
+> artifacts derivados exigidos pelo handoff ainda são placeholders. A V30 fecha esse boundary com spec compiler,
+> registry de requisitos ativos com stable IDs, supersession/refinement edges, spec-lock, machine-readable test
+> matrix, target identity, privileged Action pinning, exact SemVer immutability, SBOM/provenance e container
+> privilege/readiness-consumer gates. O core funcional da #742 permanece preservado.
 
 > **Atualização normativa V29:** a reauditoria manteve o mesmo HEAD/tree da V28 e não encontrou novo source drift, mas encontrou sete boundaries que a claim V28 ainda não congelava: **(1)** CI definido em YAML não prova que o status é required para merge; **(2)** merge/release control-plane pode mudar fora do Git tree; **(3)** a evidence exigida para o merge HEAD precisa de trigger/admission explícito para o SHA realmente mesclado e publicado; **(4)** Actions, `ubuntu-latest` e base images são dependências móveis; **(5)** o projeto publica amd64+arm64, enquanto o snapshot binário não declara byte order; **(6)** shutdown precisa retirar readiness/fleet eligibility antes de drenar e caber no termination grace externo; **(7)** `unhandledRejection` atualmente é log-and-continue, incompatível com fail-stop após erro assíncrono global. As seções 602+ criam o oitavo universo `DeliveryControlPlaneOccurrenceManifest`, fecham o bootstrap paradox do AuthorityIndex e acrescentam os casos 801–850.
 
@@ -36748,6 +36775,1213 @@ H. alinhar internal shutdown deadline ao external termination grace;
 I. tratar unhandledRejection como fatal containment;
 J. só chamar de FINAL_V29 quando os 850+ casos, oito manifests, merge/release evidence e long-lived anchor
    estiverem verdes e correspondendo ao artifact efetivamente publicado.
+```
+
+---
+
+---
+
+# 621. Reauditoria normativa V30 — Spec-Compiler, Assurance-State, Target-Identity, Supply-Chain Provenance & Container-Privilege Closure
+
+A V29 fecha de forma muito ampla o comportamento funcional da #742, a coerência de cache/paginação,
+lifecycle, artifacts, settings bootstrap, deployment entrypoint, multi-arch e delivery control plane. A V30
+não reabre esses contratos. Ela fecha uma camada que ainda permanecia parcialmente declarativa: **como provar
+mecanicamente qual subconjunto do documento cumulativo está ativo, como impedir que artefatos derivados fiquem
+apenas prometidos, como identificar inequivocamente o repositório/branch que receberá a implementação e como
+endurecer a cadeia de release privilegiada sem confundir observabilidade pós-fato com prevenção**.
+
+## 621.1. Snapshot revalidado em 2026-09-25
+
+```text
+upstream = cedya77/aiometadata
+dev HEAD = d270a3a7f3b6e41304d9f91045b1d481311c3c96
+Tree SHA = b4db5931c47035862fac075ac01ec02fe1e621c0
+Issue #742 = open / 0 comments
+release base = v3.1.0 @ 6e83e22ab9de5093f9918a1871157f401feebb03
+upstream tree entries = 584
+```
+
+Não houve source drift do upstream desde a V29.
+
+## 621.2. Revalidação do repositório normativo
+
+No snapshot auditado de `procopio1000/aiometadata-release-visibility`:
+
+```text
+PLAN.md = presente / V29 / ~991 KiB
+SPEC_VERSION.md = presente
+docs/architecture = README placeholder
+docs/decisions = README placeholder
+docs/audits = README placeholder
+evidence = README placeholder
+test-matrix = README placeholder
+spec compiler = ausente
+generated authority index = ausente
+generated active requirements registry = ausente
+materialized 1–850 test matrix = ausente
+eight occurrence manifests = ausentes no repo normativo
+generated handoff bundle = ausente
+spec-integrity CI = ausente
+```
+
+Logo, o texto V29 **especifica** os artefatos corretos, mas o próprio repositório normativo ainda não os
+**materializa**. Isso não invalida a arquitetura; invalida apenas qualquer claim de que o handoff mecânico já está
+pronto.
+
+## 621.3. Revalidação do control plane observável
+
+No upstream observado:
+
+```text
+dev branch resource: protected=false
+required_status_checks expostos no branch resource: nenhum
+repository rulesets observáveis: []
+classic branch-protection detailed endpoint: 403 para a integração usada
+```
+
+Classificação V30:
+
+```text
+classicBranchSummary = OBSERVED_NOT_PROTECTED
+rulesetList = OBSERVED_EMPTY
+classicProtectionDetails = ACCESS_UNAVAILABLE
+mergeEnforcement = NOT_PROVEN_AND_NO_ENFORCEMENT_OBSERVED
+```
+
+Não promover isso para uma conclusão sobre configurações organizacionais invisíveis. Para `MERGE_VERIFIED`, a
+evidence do control plane efetivo continua obrigatória.
+
+## 621.4. Revalidação do target de implementação
+
+O plano referencia:
+
+```text
+procopio1000/aiometadata
+```
+
+como repositório de implementação. Na conexão GitHub utilizada nesta reauditoria, esse caminho retornou 404 e
+não pôde ser inspecionado. Isso pode significar repositório privado/não conectado, rename, fork ainda não criado
+ou outra limitação de acesso; **não significa prova de inexistência**.
+
+Portanto:
+
+```text
+ImplementationTargetState = TARGET_ACCESS_UNVERIFIED
+```
+
+A implementação não deve presumir remote/branch/permissões até o gate 627 materializar a identidade do target.
+
+## 621.5. Fatos adicionais do release path atual
+
+```text
+- docker-release.yml usa workflow_call + workflow_dispatch;
+- publica linux/amd64 + linux/arm64;
+- usa ubuntu-latest;
+- usa actions/checkout@v4 e docker/* actions por major tag;
+- release-please usa googleapis/release-please-action@v4 e contents:write;
+- docker publish paths possuem packages:write;
+- Dockerfile usa node:24-alpine sem digest pin;
+- Dockerfile não possui USER e, portanto, executa como root por default;
+- Docker HEALTHCHECK consulta /health/live, não /health/ready;
+- exact SemVer, major/minor/latest e preview/testing possuem semânticas de mutabilidade diferentes e precisam
+  ser classificadas separadamente;
+- não existe no snapshot uma policy materializada de SBOM + build provenance vinculada aos digests publicados.
+```
+
+Esses fatos originam os gates V30 seguintes.
+
+---
+
+# 622. Blockers adicionais V30
+
+Adicionar cumulativamente aos blockers V8→V29:
+
+```text
+V30-A. O título/document status chama V29 de FINAL enquanto o próprio documento exige 850 casos executados,
+       oito manifests e evidence de merge/release antes da claim FINAL_V29; o repo normativo possui 1.106
+       checkboxes vazios e nenhum estado executado materializado. Versão da especificação e nível de assurance
+       precisam ser estados distintos.
+
+V30-B. BootstrapAuthoritySeedV29 usa ranges amplos, mas não codifica mecanicamente, requisito por requisito,
+       as relações ACTIVE / SUPERSEDED / REFINED / REPLACED_BY. Em documento cumulativo, range não basta para
+       impedir um agente de reaplicar um MUST histórico.
+
+V30-C. Stable requirement IDs são exigidos conceitualmente, porém não estão materializados como registry
+       completo da especificação ativa. Exemplos de IDs não equivalem a rastreabilidade total.
+
+V30-D. docs/, evidence/ e test-matrix/ existem como placeholders. O repo normativo ainda não prova que
+       AuthorityIndex, manifests, matrix, schemas e handoff correspondem ao blob atual de PLAN.md.
+
+V30-E. Não existe spec-integrity CI. Um PLAN.md pode mudar sem regenerar derivados, e um derivado pode mudar
+       sem provar qual PLAN blob o produziu.
+
+V30-F. O implementation repo/branch exato não foi observável nesta auditoria. Um agente pode aplicar o plano
+       no remote errado, em branch errada ou sobre base diferente sem um TargetIdentity lock.
+
+V30-G. Registrar o resolved SHA de uma Action móvel detecta drift depois da resolução, mas não impede que uma
+       tag privilegiada como docker/login-action@v3 ou release-please-action@v4 seja movida antes da execução.
+       Paths com write token/secrets exigem identidade imutável antes de executar.
+
+V30-H. A V29 trata SemVer rebuild, mas precisa distinguir explicitamente exact release tags de aliases móveis:
+       vX.Y.Z / image X.Y.Z são anchors imutáveis; vX, vX.Y, latest são aliases móveis por design e nunca podem
+       ser usados como authority histórica.
+
+V30-I. O repositório não materializa SBOM e build provenance por plataforma vinculados ao OCI digest.
+       Commit+image digest é forte, mas ainda não prova dependency/base/toolchain composition de forma portátil.
+
+V30-J. O container atual roda como root por default. Como o runtime persiste addon/data/imdb-ratings.bin,
+       migrar cegamente para non-root pode quebrar durability; permanecer root sem exception/hardening também
+       não é um estado de release-hardening explícito.
+
+V30-K. Docker HEALTHCHECK=liveness é correto para evitar kill durante drain, mas não pode ser confundido com
+       readiness/traffic admission. Deployment que só consome Docker health continua sem readiness admission.
+
+V30-L. O V29 pede 850 casos, porém o test-matrix directory não contém machine-readable case IDs/status/
+       requirement links. Continuidade numérica no Markdown não prova execução nem ausência de orphan tests.
+
+V30-M. Um agente que lê o PLAN cumulativo inteiro por busca livre ainda pode selecionar texto histórico antes
+       que PR 0A gere o AuthorityIndex. O handoff precisa ter um artifact compilado pequeno e hashado como
+       primeira leitura.
+
+V30-N. Uma evidence bundle pode citar uma spec version nominal correta mas um PLAN blob diferente. Version
+       string sozinha não é autoridade; blob SHA + generated bundle digest + generator identity são necessários.
+```
+
+---
+
+# 623. Nono universo autoritativo — SpecificationArtifactOccurrenceManifest
+
+A V30 eleva a reconciliação para **nove universos**:
+
+```text
+1. async occurrences
+2. process-resource occurrences
+3. network-caller occurrences
+4. frontend-effect occurrences
+5. persistent-artifact occurrences
+6. runtime-setting occurrences
+7. runtime-entrypoint/deployment occurrences
+8. delivery-control-plane occurrences
+9. specification-artifact occurrences
+```
+
+Schema conceitual:
+
+```ts
+interface SpecificationArtifactOccurrence {
+  id: string;
+  path: string;
+  kind:
+    | 'NORMATIVE_SOURCE'
+    | 'AUTHORITY_INDEX'
+    | 'ACTIVE_REQUIREMENT_REGISTRY'
+    | 'TRACEABILITY_MATRIX'
+    | 'TEST_MATRIX'
+    | 'OCCURRENCE_MANIFEST'
+    | 'SCHEMA'
+    | 'HANDOFF'
+    | 'EVIDENCE_SCHEMA'
+    | 'SPEC_LOCK'
+    | 'AUDIT_REPORT';
+
+  sourcePlanBlob: string;
+  generatorVersion: string | null;
+  schemaVersion: string;
+  digest: string;
+
+  status: 'SOURCE' | 'GENERATED' | 'MANUAL_DERIVED';
+  freshness: 'CURRENT' | 'STALE' | 'UNKNOWN';
+  requiredForSpecComplete: boolean;
+
+  owner: 'SPEC_REPO' | 'IMPLEMENTATION_REPO' | 'CI' | 'EXTERNAL';
+  evidence: string[];
+}
+```
+
+Zero-occurrence/freshness rule:
+
+```text
+artifact requerido ausente
+OU artifact derivado sem sourcePlanBlob
+OU digest diferente do spec-lock
+OU generatorVersion desconhecida
+OU derived artifact stale
+= SPEC_COMPLETE bloqueado
+```
+
+O PLAN histórico continua authority normativa de origem; os artifacts gerados são **views verificáveis**, não
+uma segunda fonte independente de verdade.
+
+---
+
+# 624. Assurance-State Gate — versão da especificação não é estado de execução
+
+## 624.1. Estados normativos V30
+
+Separar explicitamente:
+
+```ts
+type AssuranceState =
+  | 'SPEC_AUDITED'
+  | 'SPEC_COMPLETE'
+  | 'CODE_COMPLETE'
+  | 'MERGE_VERIFIED'
+  | 'RELEASE_VERIFIED';
+```
+
+Semântica:
+
+```text
+SPEC_AUDITED
+→ plano foi reaudidado contra snapshot fixado;
+→ não afirma que artifacts derivados existem nem que testes foram executados.
+
+SPEC_COMPLETE
+→ spec compiler/registry/index/manifests schemas/test matrix/handoff estão materializados,
+  current e internamente consistentes.
+
+CODE_COMPLETE
+→ implementação no target exato satisfaz requirements ativos e evidence executável do código no SHA fixado.
+
+MERGE_VERIFIED
+→ actual merge SHA foi auditado e merge-control evidence corresponde a ele.
+
+RELEASE_VERIFIED
+→ tag imutável → commit → evidence → multi-arch OCI digests → provenance/SBOM/anchor estão ligados.
+```
+
+`EXTERNAL_UNPROVEN` deve ser preservado como dimensão/boundary quando deployment/admin control plane não puder
+ser observado; nunca promover automaticamente o estado.
+
+## 624.2. Naming rule
+
+A palavra `FINAL` não deve ser usada no título da **especificação** como sinônimo de release assurance.
+
+Preferir:
+
+```text
+Plano mestre V30 NORMATIVE
+Assurance: SPEC_AUDITED
+```
+
+Até os demais gates existirem.
+
+## 624.3. Transition evidence
+
+Cada promoção exige artifact:
+
+```text
+SPEC_AUDITED   → audit report + source snapshot
+SPEC_COMPLETE  → spec-lock + generated bundle
+CODE_COMPLETE  → implementation EvidenceBundle + tests
+MERGE_VERIFIED → merge SHA + enforcement/admission evidence
+RELEASE_VERIFIED → release provenance + OCI/SBOM/attestation + long-lived anchor
+```
+
+Downgrade é obrigatório quando a evidence necessária expira, diverge ou fica stale.
+
+---
+
+# 625. Spec Compiler / Active Requirement Registry Gate
+
+## 625.1. Objetivo
+
+Transformar o PLAN cumulativo em um bundle pequeno, determinístico e mecanicamente verificável antes do
+handoff para Codex/implementador.
+
+Materializar no repo normativo, por exemplo:
+
+```text
+generated/
+  active-requirements.json
+  authority-index.json
+  issue742-traceability.json
+  test-matrix.json
+  occurrence-manifests/
+  schemas/
+  handoff.md
+  spec-lock.json
+```
+
+O formato pode variar; as propriedades abaixo são normativas.
+
+## 625.2. Registry de requisitos ativos
+
+Cada requisito ativo recebe record estável:
+
+```ts
+interface ActiveRequirement {
+  id: string;
+  domain: string;
+  level: 'MUST' | 'SHOULD' | 'OPTION' | 'DECISION';
+  statement: string;
+  sourceSection: string;
+  sourceAnchor: string;
+
+  lifecycle: 'ACTIVE' | 'SUPERSEDED' | 'REFINED';
+  supersedes: string[];
+  refinedBy: string[];
+  replacementId: string | null;
+
+  codePaths: string[];
+  testIds: string[];
+  evidenceOutputs: string[];
+}
+```
+
+Stable ID é identidade lógica, não número da linha.
+
+## 625.3. Regra de bootstrap V30
+
+Substituir o seed baseado apenas em ranges pela regra mecânica:
+
+```yaml
+source_of_truth: PLAN.md
+historical_default: ACTIVE_UNLESS_EXPLICITLY_SUPERSEDED
+supersession_requires:
+  - stable_requirement_id
+  - relation: SUPERSEDES|REFINES|REPLACES
+  - target_requirement_id
+  - reason
+  - source_section
+```
+
+Isso preserva requisitos V8→V20 que continuam válidos mesmo quando não aparecem em um range `latest` curto.
+
+O `BootstrapAuthoritySeedV29` permanece histórico; V30 refina sua função.
+
+## 625.4. Sem NLP como authority
+
+Parser pode ajudar a localizar `deve`, `MUST`, `obrigatório`, checkboxes e headings, mas não pode inventar
+precedência sem registry explícito.
+
+Regras:
+
+```text
+novo MUST detectado e sem ID/disposition → FAIL
+ID duplicado com statements incompatíveis → FAIL
+SUPERSEDED sem replacement/reason quando necessário → FAIL
+test ativo apontando somente para requirement superseded → FAIL
+requirement ativo sem test/evidence/disposition → FAIL
+```
+
+## 625.5. `spec-lock.json`
+
+Registrar:
+
+```text
+specVersion
+PLAN git blob SHA
+PLAN SHA-256
+spec compiler version/digest
+generated bundle digest
+upstream repo + HEAD + tree
+issue snapshot id/state/updatedAt
+implementation target identity state
+schema versions
+case id range/count
+manifest universe count
+```
+
+Qualquer divergência exige regeneration; não aceitar “mesmo nome de versão” como equivalência.
+
+---
+
+# 626. Derived-Artifact Freshness / Placeholder Closure Gate
+
+O README pode anunciar uma estrutura futura, mas `SPEC_COMPLETE` só existe quando o conteúdo está presente.
+
+Classificar diretórios:
+
+```text
+PLACEHOLDER
+MATERIALIZED_CURRENT
+MATERIALIZED_STALE
+NOT_REQUIRED
+```
+
+No snapshot desta reauditoria:
+
+```text
+docs/architecture   = PLACEHOLDER
+docs/decisions      = PLACEHOLDER
+docs/audits         = PLACEHOLDER
+evidence            = PLACEHOLDER
+test-matrix         = PLACEHOLDER
+```
+
+Policy:
+
+```text
+README placeholder nunca satisfaz artifact required;
+generated artifact deve carregar sourcePlanBlob + digest;
+CI compara spec-lock com todos os derived artifacts;
+change em PLAN.md sem regeneration → FAIL;
+change em generator sem regeneration → FAIL;
+manual edit de generated artifact sem atualização válida → FAIL.
+```
+
+`README.md` e `SPEC_VERSION.md` devem publicar também o assurance state atual para não induzir implementador a
+ler `FINAL` como “executado/verde”.
+
+---
+
+# 627. Implementation Target Identity / Fork-Base Gate
+
+Antes de qualquer edição, gerar:
+
+```ts
+interface ImplementationTargetIdentity {
+  repositoryFullName: string;
+  repositoryId: string | null;
+  visibility: 'PUBLIC' | 'PRIVATE' | 'UNKNOWN';
+  access: 'READ_WRITE' | 'READ_ONLY' | 'UNAVAILABLE';
+
+  upstreamRepository: 'cedya77/aiometadata';
+  forkRelationship: 'PROVEN' | 'NOT_A_FORK' | 'UNKNOWN';
+
+  defaultBranch: string | null;
+  targetBranch: string;
+  baseCommit: string;
+  baseTree: string;
+  remoteUrlFingerprint: string;
+}
+```
+
+Gate:
+
+```text
+repositoryFullName diferente do handoff → STOP
+target branch diferente → STOP
+base commit/tree drift sem delta audit → STOP
+write target inacessível → TARGET_ACCESS_UNVERIFIED; não fingir que alteração foi aplicada
+fork relationship unknown → permitido para planejamento, não para automated push/PR sem confirmação
+```
+
+Não usar nome inferido da conversa como remote authority.
+
+O snapshot V30 começa com:
+
+```text
+procopio1000/aiometadata = TARGET_ACCESS_UNVERIFIED na integração usada nesta auditoria
+```
+
+Isso deve ser resolvido pelo agente no ambiente que realmente fará a implementação.
+
+---
+
+# 628. Privileged Action Pinning / Workflow Supply-Chain Gate
+
+## 628.1. Detecção não substitui prevenção
+
+V29 corretamente registra `resolvedSha`. V30 acrescenta:
+
+```text
+workflow/action com write permission, registry credential, release permission ou id-token
+→ terceiro `uses:` deve ser pinado por commit SHA imutável para RELEASE_VERIFIED.
+```
+
+Exemplo de forma esperada:
+
+```yaml
+uses: docker/login-action@<full-commit-sha> # v3.x.y
+```
+
+Tag major/minor pode permanecer comentário de manutenção, não authority de execução.
+
+## 628.2. Classes
+
+```text
+PR_READ_ONLY
+→ pin por SHA SHOULD; resolved SHA sempre evidence.
+
+PR_TARGET_METADATA
+→ pin por SHA MUST para SPEC/RELEASE maximum assurance; nunca checkout/exec untrusted head.
+
+PRIVILEGED_RELEASE
+→ pin por SHA MUST.
+
+LOCAL_REUSABLE_WORKFLOW
+→ identity deriva do commit confiável que contém o caller/callee; registrar ambos.
+```
+
+## 628.3. Updates
+
+Atualização de action pin:
+
+```text
+PR dedicado/revisável
+resolved commit verificado
+changelog/security impact classificado
+release evidence rerodada
+```
+
+Ferramenta de atualização é opção; identidade imutável é o requisito.
+
+## 628.4. Permissions
+
+Cada job declara mínima permission efetiva. `contents:write`, `packages:write`, `id-token:write` e secrets
+precisam de justification vinculada ao DeliveryControlPlane manifest.
+
+---
+
+# 629. Release Tag / OCI Alias Immutability Gate
+
+Separar identidades:
+
+```ts
+type ReleaseNameClass =
+  | 'IMMUTABLE_EXACT_SEMVER'
+  | 'MUTABLE_MAJOR_ALIAS'
+  | 'MUTABLE_MINOR_ALIAS'
+  | 'MUTABLE_LATEST_ALIAS'
+  | 'MUTABLE_PREVIEW'
+  | 'MUTABLE_TESTING';
+```
+
+## 629.1. Exact SemVer
+
+```text
+Git tag vX.Y.Z
++
+OCI tag X.Y.Z
+```
+
+devem permanecer mapeados ao mesmo source commit/manifest digest após publicação release-grade.
+
+Proteção pode ser implementada por ruleset/tag policy ou, quando admin control plane não for disponível, por
+admission check que compara o historical release ledger e recusa mutation.
+
+## 629.2. Aliases móveis
+
+```text
+vX
+vX.Y
+X
+X.Y
+latest
+beta/testing/preview quando declarados móveis
+```
+
+podem mudar conforme policy, mas:
+
+```text
+nunca são evidence anchor
+nunca substituem exact digest
+nunca provam qual release foi executada historicamente
+```
+
+## 629.3. Release ledger
+
+Long-lived evidence registra:
+
+```text
+exact git tag → commit SHA
+exact OCI SemVer → manifest digest
+major/minor/latest alias → digest observado no momento (informativo)
+```
+
+Mudança do exact mapping → release integrity failure.
+
+---
+
+# 630. SBOM / Build Provenance / Artifact Attestation Gate
+
+## 630.1. Release-grade composition evidence
+
+Para `RELEASE_VERIFIED`, produzir no mínimo:
+
+```text
+per-platform SBOM (SPDX ou CycloneDX equivalente)
+build provenance vinculada ao exact OCI digest
+source commit/tree
+workflow identity
+Dockerfile digest
+package-lock digest
+base image digest
+builder/runner identity
+platform/arch
+final image digest
+```
+
+SBOM do amd64 e arm64 pode divergir em packages nativos; essa diferença deve ser explícita.
+
+## 630.2. Anchor
+
+Formato aceitável:
+
+```text
+OCI attestation
+GitHub artifact attestation
+content-addressed provenance asset
+outro mecanismo verificável equivalente
+```
+
+Signing keyless/OIDC é hardening recomendado quando disponível, mas a V30 não acopla a especificação a um
+vendor específico. O requisito é **verificabilidade criptográfica/content-addressed da provenance**, não uma
+marca específica de ferramenta.
+
+## 630.3. Verification
+
+Antes de promover release:
+
+```text
+provenance.subject.digest == OCI digest publicado
+provenance.source.sha == release tag commit
+SBOM subject == platform image digest
+base digest/fingerprint == evidence do build
+```
+
+Mismatch → `RELEASE_VERIFIED` bloqueado.
+
+---
+
+# 631. Container Runtime Privilege / Writable-Artifact Gate
+
+## 631.1. Estado atual
+
+O Dockerfile auditado não possui `USER`; o runtime herda root do `node:24-alpine`.
+
+Isso não é bug funcional da #742, mas é boundary de hardening do artifact publicado.
+
+## 631.2. Política V30
+
+Para release-hardening máximo, escolher uma opção explicitamente:
+
+```text
+A. NON_ROOT
+   dedicated UID/GID;
+   data root e temp roots com ownership correto;
+   boot/read/write/rename snapshot fixtures passam.
+
+B. EXPLICIT_ROOT_EXCEPTION
+   razão documentada;
+   mínima superfície de write;
+   capabilities reduzidas quando suportado;
+   no-new-privileges quando suportado;
+   filesystem/volume boundaries documentados.
+```
+
+Root silencioso sem classificação não passa o hardening gate.
+
+## 631.3. Persistência
+
+`addon/data/imdb-ratings.bin` e demais artifacts precisam sobreviver à mudança de UID:
+
+```text
+mkdir/chown no build/entrypoint quando apropriado
+volume bind com UID/GID compatível
+atomic rename dentro do mesmo filesystem
+read-only rootfs + writable data mount suportado quando deployment optar por isso
+```
+
+Permission error:
+
+```text
+no false READY da capability que depende do artifact
+telemetry explícita
+recovery sem truncar last-known-good
+```
+
+---
+
+# 632. Docker Health / Readiness-Consumer Semantics Gate
+
+O HEALTHCHECK atual usa:
+
+```text
+/health/live
+```
+
+Isso pode permanecer correto para liveness durante graceful drain.
+
+Regra V30:
+
+```text
+Docker HEALTHCHECK == liveness signal
+!=
+traffic readiness authority
+```
+
+Logo:
+
+```text
+- não trocar automaticamente /health/live por /health/ready sem revisar restart semantics;
+- reverse proxy/orchestrator precisa consumir /health/ready ou outro readiness contract equivalente para
+  traffic admission;
+- deployment que só observa Docker health permanece DEPLOYMENT_READINESS_UNPROVEN;
+- durante DRAINING: live policy pode seguir 200 bounded; ready precisa 503 conforme V29.
+```
+
+Esse gate refina, não substitui, as seções 592/610/849.
+
+---
+
+# 633. EvidenceBundle V30 / Compiled-Spec Provenance
+
+Estender V29:
+
+```ts
+interface AuditEvidenceBundleV30 extends AuditEvidenceBundleV29 {
+  assuranceState: 'SPEC_AUDITED' | 'SPEC_COMPLETE' | 'CODE_COMPLETE' | 'MERGE_VERIFIED' | 'RELEASE_VERIFIED';
+
+  normativePlanBlob: string;
+  normativePlanSha256: string;
+  specCompilerIdentity: string;
+  generatedSpecBundleDigest: string;
+  specLockDigest: string;
+
+  activeRequirementRegistry: string;
+  specificationArtifactManifest: string;
+  materializedTestMatrix: string;
+  generatedHandoff: string;
+
+  implementationTargetIdentity: string;
+
+  privilegedActionPinProof: string;
+  releaseNameClassProof: string;
+  sbomByPlatform: Record<string, string>;
+  provenanceByPlatform: Record<string, string>;
+  containerPrivilegeProof: string;
+  readinessConsumerProof: string;
+}
+```
+
+Regra de consistência:
+
+```text
+Evidence spec blob != checked-out normative blob → FAIL
+generated bundle digest != spec-lock → FAIL
+implementation target != handoff target → FAIL
+release provenance source != release commit → FAIL
+exact SemVer mapping drift → FAIL
+```
+
+A evidence deve manter provenance em cadeia:
+
+```text
+PLAN blob
+→ generated active spec bundle
+→ implementation SHA/tree
+→ actual merge SHA
+→ exact release tag
+→ platform image digest
+→ OCI manifest digest
+→ SBOM/provenance/anchor
+```
+
+---
+
+# 634. Spec-Integrity CI / Repository Governance Gate
+
+O repositório normativo precisa de CI próprio antes de `SPEC_COMPLETE`.
+
+Checks mínimos:
+
+```text
+spec-parse
+section numbering uniqueness/continuity
+markdown fence balance
+test id uniqueness/range continuity
+generate active requirement registry
+generate authority index
+no-orphan requirement/test/evidence lint
+nine-universe manifest schema validation
+generated artifact freshness
+spec-lock digest verification
+placeholder-required artifact check
+handoff target identity schema validation
+```
+
+CI deve rodar em `pull_request` e `push` do repo normativo com permissions read-only sempre que possível.
+
+Não exigir que todo evidence runtime esteja presente no spec repo antes da implementação; exigir que schema,
+IDs, owners e expected outputs estejam presentes e atuais.
+
+---
+
+# 635. Casos adicionais V30 — 851–900
+
+Adicionar aos 850 casos existentes:
+
+```text
+851. título/spec version sugere FINAL, mas nenhum execution evidence existe
+     → assurance permanece SPEC_AUDITED; naming linter impede promoção sem evidence.
+
+852. docs/test-matrix/evidence contêm apenas README placeholder
+     → SPEC_COMPLETE bloqueado.
+
+853. generated active-requirements foi produzido de outro PLAN blob
+     → spec-lock mismatch; FAIL.
+
+854. generator version muda sem regeneration
+     → derived freshness = STALE; FAIL.
+
+855. novo MUST normativo não possui stable requirement id/disposition
+     → requirement registry lint falha.
+
+856. dois requirements ACTIVE incompatíveis no mesmo domain sem precedence edge
+     → authority conflict; FAIL.
+
+857. requirement SUPERSEDED ainda aparece no generated active handoff
+     → compiler/linter falha.
+
+858. requisito histórico válido em seção fora dos ranges curtos do seed V29 não possui supersession explícita
+     → permanece ACTIVE por default V30; não pode desaparecer silenciosamente.
+
+859. refinement substitui apenas parte de um requirement histórico
+     → relação REFINES preserva cláusulas não substituídas; no wholesale deletion.
+
+860. agente tenta implementar por free-search do PLAN histórico ignorando generated/handoff lock
+     → handoff gate rejeita workflow como não reproduzível.
+
+861. implementation repository não é acessível no ambiente do agente
+     → TARGET_ACCESS_UNVERIFIED; nenhuma claim de patch/PR realizado.
+
+862. repository acessível, mas remote full name difere do ImplementationTargetIdentity
+     → STOP antes de editar/push.
+
+863. target branch existe, porém base SHA/tree divergiu do spec-lock
+     → delta/rebase audit obrigatório antes da implementação.
+
+864. upstream dev muda após spec compilation
+     → SPEC_COMPLETE pode continuar histórico, CODE_COMPLETE exige novo snapshot/delta classification.
+
+865. privileged release workflow usa third-party action por movable major tag
+     → RELEASE_VERIFIED bloqueado até immutable pin ou exception policy explicitamente inferior.
+
+866. privileged action usa full commit SHA e resolved identity coincide
+     → action identity gate passa.
+
+867. action pin no source não coincide com action identity registrada na build provenance
+     → provenance FAIL.
+
+868. privileged workflow passa secret/write token a step que consome untrusted PR-controlled input/code
+     → supply-chain/security gate FAIL.
+
+869. exact git tag vX.Y.Z é movida para outro commit após release
+     → release ledger detecta drift; integrity FAIL.
+
+870. exact git tag vX.Y.Z permanece no mesmo commit e OCI X.Y.Z no mesmo manifest digest
+     → exact SemVer immutability passa.
+
+871. alias vX/vX.Y muda após nova release compatível
+     → permitido pela MUTABLE alias policy; não afeta historical anchor.
+
+872. latest muda após nova release
+     → comportamento esperado, mas evidence histórica continua usando digest/exact SemVer.
+
+873. OCI exact X.Y.Z é repontado para novo digest por rebuild
+     → immutable release gate bloqueia ou exige revision distinta.
+
+874. preview/testing image usa tag móvel e evidence curta
+     → classificada MUTABLE_NON_RELEASE; nunca promove RELEASE_VERIFIED.
+
+875. release image publicada sem SBOM
+     → CODE/MERGE podem estar verdes; RELEASE_VERIFIED V30 bloqueado.
+
+876. amd64 e arm64 SBOMs diferem apenas em native/OS packages permitidos e ambos apontam aos digests corretos
+     → parity/provenance passa.
+
+877. provenance source SHA difere do exact release tag SHA
+     → release admission/provenance FAIL.
+
+878. provenance base-image digest difere do DeliveryDependencyFingerprint
+     → build identity mismatch; FAIL.
+
+879. attestation existe, mas subject digest não corresponde à platform image
+     → verification FAIL.
+
+880. provenance/SBOM subjects e OCI platform digests coincidem e anchor é content-addressed
+     → artifact provenance passa.
+
+881. image roda non-root e consegue read/write/fsync/rename no data root configurado
+     → container privilege + durability gate passa.
+
+882. non-root image não consegue gravar ratings snapshot/data root
+     → no false readiness; deployment/storage gate falha com diagnóstico explícito.
+
+883. image continua root e nenhuma exception/hardening record existe
+     → release-hardening gate permanece UNPROVEN.
+
+884. read-only root filesystem + writable persistent data mount
+     → boot/snapshot/restart fixtures passam.
+
+885. read-only root filesystem sem writable data mount quando snapshot é requerido
+     → controlled degraded/unready conforme policy, sem silent data loss.
+
+886. /health/live retorna 200 enquanto startup ainda não está ready
+     → permitido como liveness; não autoriza business traffic.
+
+887. deployment/router usa somente Docker HEALTHCHECK /health/live para admission
+     → DEPLOYMENT_READINESS_UNPROVEN.
+
+888. deployment/router consome /health/ready e respeita 503 no DRAINING
+     → readiness-consumer proof passa.
+
+889. action pin é atualizado
+     → dependency fingerprint muda e release-grade evidence relevante é rerodada.
+
+890. Docker base digest/runner/action/toolchain drift sem source commit
+     → delivery/spec evidence não é reutilizada como executor idêntico.
+
+891. generated bundle está current, mas README/SPEC_VERSION ainda publica assurance antigo/incorreto
+     → repository-governance lint falha.
+
+892. test-matrix continua apenas prose no PLAN sem materialized machine-readable IDs/status
+     → SPEC_COMPLETE bloqueado.
+
+893. generated test matrix possui duplicate case id
+     → CI falha.
+
+894. test case ativo não aponta a requirement/gate/disposition
+     → orphan test lint falha.
+
+895. active MUST não possui test/evidence/disposition válida
+     → orphan requirement lint falha.
+
+896. implementation evidence foi produzida contra V29 blob e handoff exige V30 blob
+     → não promover automaticamente; executar compatibility/delta gate.
+
+897. arquivo PLAN.md muda, mas generated paths permanecem byte-idênticos sem sourcePlanBlob update
+     → freshness/digest gate falha.
+
+898. release provenance usa `latest` ou `vX` como única source/artifact identity
+     → FAIL; anchor precisa exact commit/tag/digest.
+
+899. full compiled-spec proof
+     → 620 seções históricas + camada V30 compiladas, requirements ativos estáveis, nove universos materializados,
+       matrix 1–900 materializada, target identity resolvida e generated bundle current.
+
+900. combined V30 release proof
+     → SPEC_COMPLETE + CODE_COMPLETE + MERGE_VERIFIED + exact SemVer immutability + pinned privileged actions
+       + amd64/arm64 evidence + SBOM/provenance + container privilege policy + readiness consumer proof;
+       qualquer boundary externo não observável permanece explicitamente UNPROVEN em vez de ser inferido.
+```
+
+---
+
+# 636. Definition of Done V30
+
+Além de todo DoD V8→V29:
+
+```text
+[ ] upstream HEAD/tree continuam no snapshot fixado ou delta audit foi rerodado
+[ ] issue #742 state/comments rechecados no SHA de implementação/merge
+
+[ ] document version e assurance state estão separados
+[ ] título não usa FINAL como sinônimo de execution/release assurance
+
+[ ] nono universo SpecificationArtifactOccurrenceManifest materializado
+[ ] spec compiler existe e é versionado
+[ ] active requirement registry possui stable IDs
+[ ] supersedes/refines/replaces são edges explícitos, não inferência livre
+[ ] historical default ACTIVE_UNLESS_EXPLICITLY_SUPERSEDED é aplicado
+[ ] NormativeAuthorityIndex gerado corresponde ao registry
+[ ] Issue742TraceabilityMatrix gerada corresponde aos requirements ativos
+[ ] machine-readable test matrix 1–900 existe e não possui duplicate/orphan
+[ ] spec-lock liga PLAN blob + SHA-256 + compiler + generated bundle digest
+[ ] generated artifacts são CURRENT
+[ ] placeholders obrigatórios foram substituídos por materialização real
+[ ] spec-integrity CI passa
+
+[ ] ImplementationTargetIdentity foi resolvido no ambiente que fará a alteração
+[ ] repo/branch/base SHA/tree do target coincidem com handoff
+[ ] TARGET_ACCESS_UNVERIFIED impede claim de patch/PR executado
+
+[ ] privileged third-party Actions estão pinadas por immutable commit SHA para release-grade execution
+[ ] effective permissions/secrets de cada privileged job estão classificadas
+[ ] untrusted code/input não cruza privileged token boundary
+
+[ ] exact Git SemVer tag é immutable ou mutation é detectada/recusada
+[ ] exact OCI SemVer tag é immutable ou mutation é detectada/recusada
+[ ] vX/vX.Y/latest são explicitamente MUTABLE_ALIAS e nunca evidence anchor
+[ ] preview/testing/beta policy é separada da release-grade policy
+
+[ ] per-platform SBOM existe para amd64 e arm64
+[ ] build provenance aponta ao exact platform digest
+[ ] provenance source SHA == release tag commit
+[ ] base/action/runner/toolchain fingerprints correspondem à evidence
+[ ] long-lived evidence anchor inclui/resolve provenance
+
+[ ] container privilege state = NON_ROOT ou EXPLICIT_ROOT_EXCEPTION
+[ ] writable data root/UID/GID/atomic rename fixtures passam
+[ ] read-only rootfs + writable data volume behavior é classificado quando suportado
+
+[ ] Docker HEALTHCHECK permanece classificado como liveness
+[ ] traffic readiness consumer é provado ou deployment continua UNPROVEN
+[ ] /health/ready withdrawal V29 continua obrigatório durante DRAINING
+
+[ ] cases 851–900 passam quando aplicáveis ao estágio
+[ ] cases 1–850 continuam rastreáveis e verdes para CODE/RELEASE claims correspondentes
+[ ] EvidenceBundleV30 forma cadeia PLAN→generated spec→implementation→merge→release→OCI→provenance
+```
+
+---
+
+# 637. Ordem recomendada de implementação V30
+
+A principal mudança de ordem é **compilar a especificação antes de tocar no código**.
+
+```text
+SPEC PR -1 — V30 spec governance / compiler foundation
+             - assurance-state model
+             - SpecificationArtifactOccurrenceManifest
+             - active requirement registry schema
+             - supersession/refinement registry
+             - spec compiler
+             - generated authority index
+             - generated Issue742 traceability
+             - machine-readable cases 1–900
+             - generated handoff
+             - spec-lock
+             - spec-integrity CI
+             - substituir placeholders required
+
+TARGET PREFLIGHT — ImplementationTargetIdentity
+                   - resolve procopio1000/aiometadata access/remotes
+                   - target branch
+                   - base SHA/tree
+                   - fork/upstream relation
+                   - permissions
+
+PR 0A — nine manifests + schemas/evidence bootstrap consumindo o compiled spec
+PR 0B — settings bootstrap / emitted runtime parity
+PR 0C — ratings migration / durability / canonical byte-order
+PR 0D — delivery control plane
+        - immutable Action pins para privileged jobs
+        - merge/release admission
+        - exact SemVer/alias classification
+        - SBOM/provenance generation + verification
+        - amd64/arm64 smoke
+PR 0E — shutdown withdrawal / fatal lifecycle / termination budget
+PR 0F — container runtime hardening
+        - non-root ou explicit root exception
+        - data-root permission fixtures
+        - readiness-consumer deployment documentation/evidence
+
+PR 1–PR 9 — preservar a decomposição funcional V29
+
+FINAL VALIDATION
+→ generated spec bundle current
+→ cases 1–900 por stage
+→ CODE_COMPLETE
+→ actual merge SHA evidence
+→ MERGE_VERIFIED
+→ exact release + platform digests + SBOM/provenance
+→ RELEASE_VERIFIED somente onde external boundaries estão provados.
+```
+
+Se o upstream não aceitar hardening 0D/0F no escopo da #742:
+
+```text
+- separar foundation/security PRs;
+- não remover requisitos do nível RELEASE_VERIFIED;
+- permitir CODE_COMPLETE da feature quando os requisitos funcionais/lifecycle correspondentes estiverem verdes;
+- manter RELEASE_VERIFIED pendente até foundation closure.
+```
+
+---
+
+# 638. Handoff V30 para Codex/agente
+
+A ordem de leitura deixa de ser “PLAN inteiro primeiro”.
+
+Antes de editar código:
+
+```text
+1. verificar source PLAN blob + spec-lock;
+2. verificar upstream HEAD/tree + issue #742;
+3. ler generated/handoff.md;
+4. ler active-requirements + authority-index;
+5. validar nine manifests e machine-readable test matrix;
+6. resolver ImplementationTargetIdentity;
+7. se target/base divergir, parar e executar delta/rebase gate;
+8. somente então editar código;
+9. preservar Worldwide golden master e contracts region-aware da #742;
+10. executar testes/gates por PR/stage, sem fingir que case especificado = case executado;
+11. produzir evidence no exact implementation/merge SHA;
+12. pin privileged workflow dependencies por SHA antes de release-grade execution;
+13. verificar exact SemVer tag/OCI immutability;
+14. produzir/validar amd64+arm64 SBOM/provenance;
+15. verificar container privilege/data-root e readiness consumer;
+16. promover assurance state apenas com evidence correspondente.
+```
+
+O PLAN completo permanece disponível para provenance e rationale histórico. O Codex deve usar o compiled active
+bundle como authority operacional inicial e consultar o PLAN histórico por requirement ID/source anchor quando
+necessário.
+
+---
+
+# 639. Resultado final da auditoria V30
+
+A V29 estava arquiteturalmente muito madura. A V30 encontrou gaps principalmente na **execução da própria
+especificação e na prevenção supply-chain**, não no core funcional de Release Visibility.
+
+Ajustes V30:
+
+```text
++ snapshot upstream/issue revalidado sem source drift
++ branch summary protegido=false e rulesets observáveis=[] registrados sem extrapolar permissões invisíveis
++ implementation target access explicitamente TARGET_ACCESS_UNVERIFIED
++ nono universo: specification artifacts
++ assurance state separado de spec version; FINAL deixa de ser naming prematuro
++ spec compiler + generated active requirement registry
++ supersession/refinement edges explícitos
++ historical default ACTIVE_UNLESS_EXPLICITLY_SUPERSEDED
++ spec-lock com PLAN blob/compiler/generated digest
++ placeholder/freshness closure para docs/evidence/test-matrix
++ machine-readable cases 1–900
++ ImplementationTargetIdentity gate
++ privileged GitHub Actions pinned por immutable SHA
++ exact SemVer vs mutable alias taxonomy
++ tag/OCI mutation ledger
++ per-platform SBOM + build provenance/attestation
++ container root/non-root explicit policy + writable-artifact fixtures
++ Docker liveness separado mecanicamente de traffic readiness
++ 50 novos casos, total acumulado 900
+```
+
+Claim defensável V30:
+
+> **Para o upstream snapshot `d270a3a7f3b6e41304d9f91045b1d481311c3c96` / tree
+> `b4db5931c47035862fac075ac01ec02fe1e621c0`, a especificação V30 cobre o core funcional da #742 e os
+> lifecycles acumulados V8→V29, acrescentando fechamento mecânico da própria governança normativa, identidade
+> do target de implementação e supply-chain release-grade. `SPEC_AUDITED`, `SPEC_COMPLETE`, `CODE_COMPLETE`,
+> `MERGE_VERIFIED` e `RELEASE_VERIFIED` são claims diferentes e só podem ser promovidas com a evidence do
+> estágio correspondente.**
+
+Ainda não afirmar neste momento:
+
+```text
+- que cases 1–900 foram executados;
+- que os nove manifests já estão materializados;
+- que generated artifacts já existem no repositório normativo;
+- que procopio1000/aiometadata está acessível/gravável na conexão atual;
+- que merge enforcement administrativo existe;
+- que exact release tags/OCI tags são protegidos hoje;
+- que privileged Actions estão pinadas por commit hoje;
+- que SBOM/provenance release-grade já são produzidos hoje;
+- que o container já roda non-root;
+- que um deployment real consome /health/ready;
+- que RELEASE_VERIFIED foi atingido.
+```
+
+Conclusão V30:
+
+```text
+A. não reabrir a arquitetura Release Evidence → Canonical Context → Visibility → Filter → Pagination;
+B. compilar a especificação antes da implementação;
+C. dar stable ID e disposition a todo requirement ativo;
+D. impedir derived artifact stale por spec-lock/CI;
+E. resolver o implementation target antes de qualquer write;
+F. transformar privileged action identity de observação pós-fato em pin preventivo;
+G. separar exact release identities de aliases móveis;
+H. anexar SBOM/provenance aos digests realmente publicados;
+I. classificar container privilege e writable data root sem quebrar durability;
+J. preservar liveness != readiness;
+K. só promover assurance state quando a cadeia de evidence daquele estágio estiver completa.
 ```
 
 ---
